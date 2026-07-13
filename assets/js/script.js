@@ -1,3 +1,4 @@
+
 // ==========================
 // Animated Counter
 // ==========================
@@ -149,3 +150,4 @@ if(typeof AOS !== "undefined"){
     });
 
 }
+console.log("Script Loaded");
