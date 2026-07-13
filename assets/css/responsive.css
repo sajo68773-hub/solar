@@ -1,132 +1,44 @@
 /* ==========================================
    Tablet Devices
 ========================================== */
-
 @media (max-width:992px){
 
-.container{
-    width:95%;
-}
+    .container{
+        width:95%;
+    }
 
-.hero-container,
-.about-container,
-.cta-container{
+    .hero-container,
+    .about-container,
+    .cta-container{
+        flex-direction:column;
+        text-align:center;
+    }
 
-    flex-direction:column;
-    text-align:center;
+    .hero-content h1{
+        font-size:42px;
+    }
 
-}
+    .hero-buttons{
+        justify-content:center;
+    }
 
-.hero-content h1{
-
-    font-size:42px;
-
-}
-
-.hero-buttons{
-
-    justify-content:center;
-
-}
-
-.choose-container,
-.stats-container,
-.product-container,
-.service-container,
-.process-container,
-.testimonial-container,
-.footer-container{
-
-    grid-template-columns:repeat(2,1fr);
-
-}
+    .choose-container,
+    .stats-container,
+    .product-container,
+    .service-container,
+    .process-container,
+    .testimonial-container,
+    .why-services-container,
+    .contact-info-container,
+    .footer-container{
+        grid-template-columns:repeat(2,1fr);
+    }
 
 }
 
 /* ==========================================
    Mobile Devices
 ========================================== */
-
-@media (max-width:768px){
-
-.navbar,
-.btn{
-
-    display:none;
-
-}
-
-.menu-toggle{
-
-    display:block;
-
-}
-
-.hero{
-
-    padding:70px 0;
-
-}
-
-.hero-content h1{
-
-    font-size:34px;
-
-}
-
-.hero-content p{
-
-    font-size:16px;
-
-}
-
-.hero-buttons{
-
-    flex-direction:column;
-
-}
-
-.choose-container,
-.stats-container,
-.product-container,
-.service-container,
-.process-container,
-.testimonial-container,
-.footer-container{
-
-    grid-template-columns:1fr;
-
-}
-
-.about-boxes{
-
-    flex-direction:column;
-
-}
-
-.section-title h2{
-
-    font-size:30px;
-
-}
-
-.cta-content h2{
-
-    font-size:30px;
-
-}
-
-.footer{
-
-    text-align:center;
-
-}
-
-}
-/*=========================
-Mobile Navigation
-==========================*/
-
 @media (max-width:768px){
 
     .header .container{
@@ -181,8 +93,84 @@ Mobile Navigation
         border-radius:6px;
     }
 
-    .btn{
-        display:none;
+    .hero{
+        padding:70px 0;
+    }
+
+    .hero-content h1{
+        font-size:34px;
+    }
+
+    .hero-content p{
+        font-size:16px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .choose-container,
+    .stats-container,
+    .product-container,
+    .service-container,
+    .process-container,
+    .testimonial-container,
+    .why-services-container,
+    .contact-info-container,
+    .footer-container{
+        grid-template-columns:1fr;
+    }
+
+    .form-group{
+        grid-template-columns:1fr;
+    }
+
+    .about-boxes{
+        flex-direction:column;
+    }
+
+    .section-title h2{
+        font-size:30px;
+    }
+
+    .cta-content h2{
+        font-size:30px;
+    }
+
+    .footer{
+        text-align:center;
+    }
+
+}
+
+/* ==========================================
+   Small Mobile Devices
+========================================== */
+@media (max-width:480px){
+
+    .hero-content h1{
+        font-size:28px;
+    }
+
+    .btn,
+    .btn-outline{
+        padding:10px 20px;
+        font-size:15px;
+    }
+
+    .section-title h2{
+        font-size:24px;
+    }
+
+    .stat-box h2{
+        font-size:32px;
+    }
+
+    #scrollTop{
+        right:15px;
+        bottom:15px;
+        width:44px;
+        height:44px;
     }
 
 }

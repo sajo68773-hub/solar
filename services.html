@@ -21,6 +21,73 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
 
+    <!-- Mobile Menu Fix CSS (isi file me add kiya hai, agar chahe to responsive.css me move kar dena) -->
+    <style>
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 20px;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #000;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(8.5px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-8.5px) rotate(-45deg);
+        }
+
+        @media (max-width: 991px) {
+
+            .header .container {
+                position: relative;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .navbar .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+                gap: 15px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                display: none;
+                z-index: 1000;
+            }
+
+            .navbar .nav-links.show {
+                display: flex;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
@@ -36,7 +103,7 @@
 
             <nav class="navbar">
 
-                <ul class="nav-links">
+                <ul class="nav-links" id="navLinks">
 
                     <li><a href="index.html">Home</a></li>
 
@@ -50,6 +117,12 @@
 
             </nav>
 
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <a href="contact.html" class="btn">
                 Get Quote
             </a>
@@ -57,355 +130,379 @@
         </div>
 
     </header>
+
     <!-- ==========================
-Page Banner
-========================== -->
+    Page Banner
+    ========================== -->
 
-<section class="page-banner">
+    <section class="page-banner">
+
+        <div class="container">
+
+            <h1>Our Services</h1>
+
+            <p>
+                Home / Services
+            </p>
+
+        </div>
+
+    </section>
+
     <!-- ==========================
-Our Services
-========================== -->
+    Our Services
+    ========================== -->
 
-<section class="services">
+    <section class="services">
 
-    <div class="container">
+        <div class="container">
 
-        <div class="section-title">
+            <div class="section-title">
 
-            <h4>What We Offer</h4>
+                <h4>What We Offer</h4>
 
-            <h2>Professional Solar Services</h2>
-
-            <p>
-                We provide complete solar energy solutions for homes,
-                businesses and industries with expert installation and support.
-            </p>
-
-        </div>
-
-        <div class="service-container">
-
-            <!-- Service 1 -->
-            <div class="service-card">
-
-                <i class="fa-solid fa-house"></i>
-
-                <h3>Residential Solar</h3>
+                <h2>Professional Solar Services</h2>
 
                 <p>
-                    Affordable rooftop solar systems designed for homes.
+                    We provide complete solar energy solutions for homes,
+                    businesses and industries with expert installation and support.
                 </p>
 
             </div>
 
-            <!-- Service 2 -->
-            <div class="service-card">
+            <div class="service-container">
 
-                <i class="fa-solid fa-building"></i>
+                <!-- Service 1 -->
+                <div class="service-card">
 
-                <h3>Commercial Solar</h3>
+                    <i class="fa-solid fa-house"></i>
 
-                <p>
-                    Reliable solar power solutions for offices and businesses.
-                </p>
+                    <h3>Residential Solar</h3>
 
-            </div>
+                    <p>
+                        Affordable rooftop solar systems designed for homes.
+                    </p>
 
-            <!-- Service 3 -->
-            <div class="service-card">
+                </div>
 
-                <i class="fa-solid fa-industry"></i>
+                <!-- Service 2 -->
+                <div class="service-card">
 
-                <h3>Industrial Solar</h3>
+                    <i class="fa-solid fa-building"></i>
 
-                <p>
-                    High-capacity solar systems for industrial facilities.
-                </p>
+                    <h3>Commercial Solar</h3>
 
-            </div>
+                    <p>
+                        Reliable solar power solutions for offices and businesses.
+                    </p>
 
-            <!-- Service 4 -->
-            <div class="service-card">
+                </div>
 
-                <i class="fa-solid fa-solar-panel"></i>
+                <!-- Service 3 -->
+                <div class="service-card">
 
-                <h3>Solar Panel Installation</h3>
+                    <i class="fa-solid fa-industry"></i>
 
-                <p>
-                    Professional installation with premium quality panels.
-                </p>
+                    <h3>Industrial Solar</h3>
 
-            </div>
+                    <p>
+                        High-capacity solar systems for industrial facilities.
+                    </p>
 
-            <!-- Service 5 -->
-            <div class="service-card">
+                </div>
 
-                <i class="fa-solid fa-battery-full"></i>
+                <!-- Service 4 -->
+                <div class="service-card">
 
-                <h3>Battery Backup</h3>
+                    <i class="fa-solid fa-solar-panel"></i>
 
-                <p>
-                    Long-lasting lithium battery storage solutions.
-                </p>
+                    <h3>Solar Panel Installation</h3>
 
-            </div>
+                    <p>
+                        Professional installation with premium quality panels.
+                    </p>
 
-            <!-- Service 6 -->
-            <div class="service-card">
+                </div>
 
-                <i class="fa-solid fa-plug-circle-check"></i>
+                <!-- Service 5 -->
+                <div class="service-card">
 
-                <h3>Net Metering</h3>
+                    <i class="fa-solid fa-battery-full"></i>
 
-                <p>
-                    Complete net metering setup and documentation support.
-                </p>
+                    <h3>Battery Backup</h3>
 
-            </div>
+                    <p>
+                        Long-lasting lithium battery storage solutions.
+                    </p>
 
-            <!-- Service 7 -->
-            <div class="service-card">
+                </div>
 
-                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <!-- Service 6 -->
+                <div class="service-card">
 
-                <h3>Maintenance</h3>
+                    <i class="fa-solid fa-plug-circle-check"></i>
 
-                <p>
-                    Regular maintenance and troubleshooting services.
-                </p>
+                    <h3>Net Metering</h3>
 
-            </div>
+                    <p>
+                        Complete net metering setup and documentation support.
+                    </p>
 
-            <!-- Service 8 -->
-            <div class="service-card">
+                </div>
 
-                <i class="fa-solid fa-chart-line"></i>
+                <!-- Service 7 -->
+                <div class="service-card">
 
-                <h3>Energy Audit</h3>
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
 
-                <p>
-                    Analyze your electricity usage and optimize savings.
-                </p>
+                    <h3>Maintenance</h3>
 
-            </div>
+                    <p>
+                        Regular maintenance and troubleshooting services.
+                    </p>
 
-            <!-- Service 9 -->
-            <div class="service-card">
+                </div>
 
-                <i class="fa-solid fa-headset"></i>
+                <!-- Service 8 -->
+                <div class="service-card">
 
-                <h3>24/7 Support</h3>
+                    <i class="fa-solid fa-chart-line"></i>
 
-                <p>
-                    Dedicated customer support whenever you need assistance.
-                </p>
+                    <h3>Energy Audit</h3>
 
-            </div>
+                    <p>
+                        Analyze your electricity usage and optimize savings.
+                    </p>
 
-        </div>
+                </div>
 
-    </div>
+                <!-- Service 9 -->
+                <div class="service-card">
 
-</section>
-<!-- ==========================
-Why Choose Our Services
-========================== -->
+                    <i class="fa-solid fa-headset"></i>
 
-<section class="why-services">
+                    <h3>24/7 Support</h3>
 
-    <div class="container">
+                    <p>
+                        Dedicated customer support whenever you need assistance.
+                    </p>
 
-        <div class="section-title">
-
-            <h4>Why Choose Us</h4>
-
-            <h2>Why Our Solar Services Stand Out</h2>
-
-            <p>
-                We are committed to delivering reliable, affordable, and
-                high-quality solar energy solutions with excellent customer support.
-            </p>
-
-        </div>
-
-        <div class="why-services-container">
-
-            <div class="why-service-box">
-
-                <i class="fa-solid fa-award"></i>
-
-                <h3>10+ Years Experience</h3>
-
-                <p>
-                    Years of experience in residential, commercial and industrial projects.
-                </p>
-
-            </div>
-
-            <div class="why-service-box">
-
-                <i class="fa-solid fa-shield-halved"></i>
-
-                <h3>Quality Assurance</h3>
-
-                <p>
-                    Premium products with manufacturer warranty and quality testing.
-                </p>
-
-            </div>
-
-            <div class="why-service-box">
-
-                <i class="fa-solid fa-user-check"></i>
-
-                <h3>Certified Engineers</h3>
-
-                <p>
-                    Skilled professionals providing safe and efficient installations.
-                </p>
-
-            </div>
-
-            <div class="why-service-box">
-
-                <i class="fa-solid fa-bolt"></i>
-
-                <h3>Fast Installation</h3>
-
-                <p>
-                    Quick and hassle-free installation with minimum downtime.
-                </p>
-
-            </div>
-
-            <div class="why-service-box">
-
-                <i class="fa-solid fa-hand-holding-dollar"></i>
-
-                <h3>Affordable Pricing</h3>
-
-                <p>
-                    Cost-effective solar solutions suitable for every budget.
-                </p>
-
-            </div>
-
-            <div class="why-service-box">
-
-                <i class="fa-solid fa-headset"></i>
-
-                <h3>24/7 Customer Support</h3>
-
-                <p>
-                    Friendly support team available whenever you need help.
-                </p>
+                </div>
 
             </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
-<!-- ==========================
-Working Process
-========================== -->
+    <!-- ==========================
+    Why Choose Our Services
+    ========================== -->
 
-<section class="process">
+    <section class="why-services">
 
-    <div class="container">
+        <div class="container">
 
-        <div class="section-title">
+            <div class="section-title">
 
-            <h4>Our Process</h4>
+                <h4>Why Choose Us</h4>
 
-            <h2>How We Complete Your Solar Project</h2>
+                <h2>Why Our Solar Services Stand Out</h2>
 
-            <p>
-                Our step-by-step process ensures a smooth and professional solar installation experience.
-            </p>
+                <p>
+                    We are committed to delivering reliable, affordable, and
+                    high-quality solar energy solutions with excellent customer support.
+                </p>
+
+            </div>
+
+            <div class="why-services-container">
+
+                <div class="why-service-box">
+
+                    <i class="fa-solid fa-award"></i>
+
+                    <h3>10+ Years Experience</h3>
+
+                    <p>
+                        Years of experience in residential, commercial and industrial projects.
+                    </p>
+
+                </div>
+
+                <div class="why-service-box">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <h3>Quality Assurance</h3>
+
+                    <p>
+                        Premium products with manufacturer warranty and quality testing.
+                    </p>
+
+                </div>
+
+                <div class="why-service-box">
+
+                    <i class="fa-solid fa-user-check"></i>
+
+                    <h3>Certified Engineers</h3>
+
+                    <p>
+                        Skilled professionals providing safe and efficient installations.
+                    </p>
+
+                </div>
+
+                <div class="why-service-box">
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                    <h3>Fast Installation</h3>
+
+                    <p>
+                        Quick and hassle-free installation with minimum downtime.
+                    </p>
+
+                </div>
+
+                <div class="why-service-box">
+
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+
+                    <h3>Affordable Pricing</h3>
+
+                    <p>
+                        Cost-effective solar solutions suitable for every budget.
+                    </p>
+
+                </div>
+
+                <div class="why-service-box">
+
+                    <i class="fa-solid fa-headset"></i>
+
+                    <h3>24/7 Customer Support</h3>
+
+                    <p>
+                        Friendly support team available whenever you need help.
+                    </p>
+
+                </div>
+
+            </div>
 
         </div>
 
-        <div class="process-container">
+    </section>
 
-            <!-- Step 1 -->
-            <div class="process-card">
+    <!-- ==========================
+    Working Process
+    ========================== -->
 
-                <div class="process-number">01</div>
+    <section class="process">
 
-                <i class="fa-solid fa-comments"></i>
+        <div class="container">
 
-                <h3>Free Consultation</h3>
+            <div class="section-title">
+
+                <h4>Our Process</h4>
+
+                <h2>How We Complete Your Solar Project</h2>
 
                 <p>
-                    We understand your energy requirements and suggest the best solar solution.
+                    Our step-by-step process ensures a smooth and professional solar installation experience.
                 </p>
 
             </div>
 
-            <!-- Step 2 -->
-            <div class="process-card">
+            <div class="process-container">
 
-                <div class="process-number">02</div>
+                <!-- Step 1 -->
+                <div class="process-card">
 
-                <i class="fa-solid fa-location-dot"></i>
+                    <div class="process-number">01</div>
 
-                <h3>Site Inspection</h3>
+                    <i class="fa-solid fa-comments"></i>
 
-                <p>
-                    Our engineers visit your location and prepare a customized installation plan.
-                </p>
+                    <h3>Free Consultation</h3>
 
-            </div>
+                    <p>
+                        We understand your energy requirements and suggest the best solar solution.
+                    </p>
 
-            <!-- Step 3 -->
-            <div class="process-card">
+                </div>
 
-                <div class="process-number">03</div>
+                <!-- Step 2 -->
+                <div class="process-card">
 
-                <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <div class="process-number">02</div>
 
-                <h3>Installation</h3>
+                    <i class="fa-solid fa-location-dot"></i>
 
-                <p>
-                    Our certified team installs the complete solar system safely and efficiently.
-                </p>
+                    <h3>Site Inspection</h3>
 
-            </div>
+                    <p>
+                        Our engineers visit your location and prepare a customized installation plan.
+                    </p>
 
-            <!-- Step 4 -->
-            <div class="process-card">
+                </div>
 
-                <div class="process-number">04</div>
+                <!-- Step 3 -->
+                <div class="process-card">
 
-                <i class="fa-solid fa-bolt"></i>
+                    <div class="process-number">03</div>
 
-                <h3>System Activation</h3>
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
 
-                <p>
-                    Final testing is completed and your solar system is ready to generate clean energy.
-                </p>
+                    <h3>Installation</h3>
+
+                    <p>
+                        Our certified team installs the complete solar system safely and efficiently.
+                    </p>
+
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-card">
+
+                    <div class="process-number">04</div>
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                    <h3>System Activation</h3>
+
+                    <p>
+                        Final testing is completed and your solar system is ready to generate clean energy.
+                    </p>
+
+                </div>
 
             </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
 
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('show');
+        });
 
-    <div class="container">
+        // Menu link pe click karne se menu band ho jaye
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('show');
+            });
+        });
+    </script>
 
-        <h1>Our Services</h1>
+</body>
 
-        <p>
-
-            Home / Services
-
-        </p>
-
-    </div>
-
-</section>
+</html>

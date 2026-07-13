@@ -22,6 +22,72 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
+    <!-- Mobile Menu Fix CSS (isi file me add kiya hai, agar chahe to responsive.css me move kar dena) -->
+    <style>
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 20px;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #000;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(8.5px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-8.5px) rotate(-45deg);
+        }
+
+        @media (max-width: 991px) {
+
+            .header .container {
+                position: relative;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .navbar .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+                gap: 15px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                display: none;
+                z-index: 1000;
+            }
+
+            .navbar .nav-links.show {
+                display: flex;
+            }
+        }
+    </style>
 
 </head>
 
@@ -38,19 +104,25 @@
 
             <nav class="navbar">
 
-                <ul class="nav-links">
+                <ul class="nav-links" id="navLinks">
 
                     <li><a href="index.html">Home</a></li>
 
-                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="services.html">Services</a></li>
 
-                    <li><a href="products.html">Products</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
 
                     <li><a href="contact.html">Contact</a></li>
 
                 </ul>
 
             </nav>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
             <a href="contact.html" class="btn">
                 Get Quote
@@ -59,437 +131,469 @@
         </div>
 
     </header>
-<!-- ==========================
-Page Banner
-========================== -->
 
-<section class="page-banner" data-aos="fade-up"></section>
     <!-- ==========================
-Product Categories
-========================== -->
+    Page Banner
+    ========================== -->
 
-<section class="product-category" data-aos="fade-right"></section>
+    <section class="page-banner" data-aos="fade-up">
 
-    <div class="container">
+        <div class="container">
 
-        <div class="section-title">
-
-            <h4>Categories</h4>
-
-            <h2>Browse Our Products</h2>
+            <h1>Our Products</h1>
 
             <p>
-
-                Choose from our premium range of solar energy products.
-
+                Home / Products
             </p>
 
         </div>
 
-        <div class="category-buttons">
+    </section>
 
-            <button class="active">All</button>
+    <!-- ==========================
+    Product Categories
+    ========================== -->
 
-            <button>Solar Panels</button>
+    <section class="product-category" data-aos="fade-right">
 
-            <button>Inverters</button>
+        <div class="container">
 
-            <button>Batteries</button>
+            <div class="section-title">
 
-            <button>Accessories</button>
+                <h4>Categories</h4>
 
-        </div>
+                <h2>Browse Our Products</h2>
 
-    </div>
-
-</section>
-<!-- ==========================
-Products
-========================== -->
-
-<section class="products" data-aos="zoom-in"></section>
-
-    <div class="container">
-
-        <div class="product-container">
-
-            <!-- Product 1 -->
-            <div class="product-card">
-
-                <img src="assets/images/products/panel.jfif" alt="Solar Panel">
-
-                <div class="product-content">
-
-                    <span>Solar Panel</span>
-
-                    <h3>550W Mono Solar Panel</h3>
-
-                    <p>High efficiency solar panel with 25 years warranty.</p>
-
-                    <h4>$320</h4>
-
-                    <a href="contact.html" class="btn">View Details</a>
-
-                </div>
+                <p>
+                    Choose from our premium range of solar energy products.
+                </p>
 
             </div>
 
-            <!-- Product 2 -->
-            <div class="product-card">
+            <div class="category-buttons">
 
-                <img src="assets/images/products/inverter.jfif" alt="Hybrid Inverter">
+                <button class="active">All</button>
 
-                <div class="product-content">
+                <button>Solar Panels</button>
 
-                    <span>Inverter</span>
+                <button>Inverters</button>
 
-                    <h3>5KW Hybrid Inverter</h3>
+                <button>Batteries</button>
 
-                    <p>Smart inverter with WiFi monitoring support.</p>
-
-                    <h4>$480</h4>
-
-                    <a href="contact.html" class="btn">View Details</a>
-
-                </div>
-
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card">
-
-                <img src="assets/images/products/battery.jfif" alt="Battery">
-
-                <div class="product-content">
-
-                    <span>Battery</span>
-
-                    <h3>10KW Lithium Battery</h3>
-
-                    <p>Long backup battery with fast charging technology.</p>
-
-                    <h4>$650</h4>
-
-                    <a href="contact.html" class="btn">View Details</a>
-
-                </div>
-
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card">
-
-                <img src="assets/images/products/controller.jfif" alt="Charge Controller">
-
-                <div class="product-content">
-
-                    <span>Controller</span>
-
-                    <h3>MPPT Charge Controller</h3>
-
-                    <p>Advanced controller for maximum solar efficiency.</p>
-
-                    <h4>$190</h4>
-
-                    <a href="contact.html" class="btn">View Details</a>
-
-                </div>
-
-            </div>
-
-            <!-- Product 5 -->
-            <div class="product-card">
-
-                <img src="assets/images/products/light.jfif" alt="Solar Light">
-
-                <div class="product-content">
-
-                    <span>Lighting</span>
-
-                    <h3>Solar LED Street Light</h3>
-
-                    <p>Energy-saving outdoor solar lighting solution.</p>
-
-                    <h4>$120</h4>
-
-                    <a href="contact.html" class="btn">View Details</a>
-
-                </div>
-
-            </div>
-
-            <!-- Product 6 -->
-            <div class="product-card">
-
-                <img src="assets/images/products/mounting.jfif" alt="Mounting Structure">
-
-                <div class="product-content">
-
-                    <span>Accessories</span>
-
-                    <h3>Mounting Structure</h3>
-
-                    <p>Strong and durable mounting system for solar panels.</p>
-
-                    <h4>$140</h4>
-
-                    <a href="contact.html" class="btn">View Details</a>
-
-                </div>
+                <button>Accessories</button>
 
             </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
-<!-- Product 7 -->
-<div class="product-card">
+    <!-- ==========================
+    Products
+    ========================== -->
 
-    <img src="assets/images/products/water-heater.jfif" alt="Solar Water Heater">
+    <section class="products" data-aos="zoom-in">
 
-    <div class="product-content">
+        <div class="container">
 
-        <span>Heating</span>
+            <div class="product-container">
 
-        <h3>Solar Water Heater</h3>
+                <!-- Product 1 -->
+                <div class="product-card">
 
-        <p>Eco-friendly water heating system for homes and businesses.</p>
+                    <img src="assets/images/products/panel.jfif" alt="Solar Panel">
 
-        <h4>$550</h4>
+                    <div class="product-content">
 
-        <a href="contact.html" class="btn">View Details</a>
+                        <span>Solar Panel</span>
 
-    </div>
+                        <h3>550W Mono Solar Panel</h3>
 
-</div>
+                        <p>High efficiency solar panel with 25 years warranty.</p>
 
-<!-- Product 8 -->
-<div class="product-card">
+                        <h4>$320</h4>
 
-    <img src="assets/images/products/monitoring.jfif" alt="Monitoring System">
+                        <a href="contact.html" class="btn">View Details</a>
 
-    <div class="product-content">
+                    </div>
 
-        <span>Monitoring</span>
+                </div>
 
-        <h3>Smart Monitoring System</h3>
+                <!-- Product 2 -->
+                <div class="product-card">
 
-        <p>Track your solar system performance in real time.</p>
+                    <img src="assets/images/products/inverter.jfif" alt="Hybrid Inverter">
 
-        <h4>$210</h4>
+                    <div class="product-content">
 
-        <a href="contact.html" class="btn">View Details</a>
+                        <span>Inverter</span>
 
-    </div>
+                        <h3>5KW Hybrid Inverter</h3>
 
-</div>
+                        <p>Smart inverter with WiFi monitoring support.</p>
 
-<!-- Product 9 -->
-<div class="product-card">
+                        <h4>$480</h4>
 
-    <img src="assets/images/products/cable.jfif" alt="Solar Cable">
+                        <a href="contact.html" class="btn">View Details</a>
 
-    <div class="product-content">
+                    </div>
 
-        <span>Accessories</span>
+                </div>
 
-        <h3>Solar DC Cable</h3>
+                <!-- Product 3 -->
+                <div class="product-card">
 
-        <p>High-quality weather-resistant solar cables.</p>
+                    <img src="assets/images/products/battery.jfif" alt="Battery">
 
-        <h4>$45</h4>
+                    <div class="product-content">
 
-        <a href="contact.html" class="btn">View Details</a>
+                        <span>Battery</span>
 
-    </div>
+                        <h3>10KW Lithium Battery</h3>
 
-</div>
+                        <p>Long backup battery with fast charging technology.</p>
 
-<!-- Product 10 -->
-<div class="product-card">
+                        <h4>$650</h4>
 
-    <img src="assets/images/products/junction-box.jfif" alt="Junction Box">
+                        <a href="contact.html" class="btn">View Details</a>
 
-    <div class="product-content">
+                    </div>
 
-        <span>Accessories</span>
+                </div>
 
-        <h3>Solar Junction Box</h3>
+                <!-- Product 4 -->
+                <div class="product-card">
 
-        <p>Reliable protection for your solar electrical system.</p>
+                    <img src="assets/images/products/controller.jfif" alt="Charge Controller">
 
-        <h4>$75</h4>
+                    <div class="product-content">
 
-        <a href="contact.html" class="btn">View Details</a>
+                        <span>Controller</span>
 
-    </div>
+                        <h3>MPPT Charge Controller</h3>
 
-</div>
+                        <p>Advanced controller for maximum solar efficiency.</p>
 
-<!-- Product 11 -->
-<div class="product-card">
+                        <h4>$190</h4>
 
-    <img src="assets/images/products/inverter-pro.jfif" alt="10KW Inverter">
+                        <a href="contact.html" class="btn">View Details</a>
 
-    <div class="product-content">
+                    </div>
 
-        <span>Inverter</span>
+                </div>
 
-        <h3>10KW Hybrid Inverter</h3>
+                <!-- Product 5 -->
+                <div class="product-card">
 
-        <p>Powerful inverter for commercial solar installations.</p>
+                    <img src="assets/images/products/light.jfif" alt="Solar Light">
 
-        <h4>$890</h4>
+                    <div class="product-content">
 
-        <a href="contact.html" class="btn">View Details</a>
+                        <span>Lighting</span>
 
-    </div>
+                        <h3>Solar LED Street Light</h3>
 
-</div>
+                        <p>Energy-saving outdoor solar lighting solution.</p>
 
-<!-- Product 12 -->
-<div class="product-card">
+                        <h4>$120</h4>
 
-    <img src="assets/images/products/panel-pro.jfif" alt="Solar Panel">
+                        <a href="contact.html" class="btn">View Details</a>
 
-    <div class="product-content">
+                    </div>
 
-        <span>Solar Panel</span>
+                </div>
 
-        <h3>700W Premium Solar Panel</h3>
+                <!-- Product 6 -->
+                <div class="product-card">
 
-        <p>Maximum efficiency with advanced solar technology.</p>
+                    <img src="assets/images/products/mounting.jfif" alt="Mounting Structure">
 
-        <h4>$410</h4>
+                    <div class="product-content">
 
-        <a href="contact.html" class="btn">View Details</a>
+                        <span>Accessories</span>
 
-    </div>
+                        <h3>Mounting Structure</h3>
 
-</div>
+                        <p>Strong and durable mounting system for solar panels.</p>
 
-    <div class="container">
+                        <h4>$140</h4>
 
-        <h1>Our Products</h1>
+                        <a href="contact.html" class="btn">View Details</a>
 
-        <p>
+                    </div>
 
-            Home / Products
+                </div>
 
-        </p>
+                <!-- Product 7 -->
+                <div class="product-card">
 
-    </div>
+                    <img src="assets/images/products/water-heater.jfif" alt="Solar Water Heater">
 
-</section>
-<section class="cta" data-aos="zoom-in"></section>
+                    <div class="product-content">
 
-    <div class="container cta-container">
+                        <span>Heating</span>
 
-        <div class="cta-content">
+                        <h3>Solar Water Heater</h3>
 
-            <h2>Looking for the Right Solar Product?</h2>
+                        <p>Eco-friendly water heating system for homes and businesses.</p>
 
-            <p>
-                Our experts are here to help you choose the best solar solution for your home or business.
-            </p>
+                        <h4>$550</h4>
+
+                        <a href="contact.html" class="btn">View Details</a>
+
+                    </div>
+
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card">
+
+                    <img src="assets/images/products/monitoring.jfif" alt="Monitoring System">
+
+                    <div class="product-content">
+
+                        <span>Monitoring</span>
+
+                        <h3>Smart Monitoring System</h3>
+
+                        <p>Track your solar system performance in real time.</p>
+
+                        <h4>$210</h4>
+
+                        <a href="contact.html" class="btn">View Details</a>
+
+                    </div>
+
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card">
+
+                    <img src="assets/images/products/cable.jfif" alt="Solar Cable">
+
+                    <div class="product-content">
+
+                        <span>Accessories</span>
+
+                        <h3>Solar DC Cable</h3>
+
+                        <p>High-quality weather-resistant solar cables.</p>
+
+                        <h4>$45</h4>
+
+                        <a href="contact.html" class="btn">View Details</a>
+
+                    </div>
+
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-card">
+
+                    <img src="assets/images/products/junction-box.jfif" alt="Junction Box">
+
+                    <div class="product-content">
+
+                        <span>Accessories</span>
+
+                        <h3>Solar Junction Box</h3>
+
+                        <p>Reliable protection for your solar electrical system.</p>
+
+                        <h4>$75</h4>
+
+                        <a href="contact.html" class="btn">View Details</a>
+
+                    </div>
+
+                </div>
+
+                <!-- Product 11 -->
+                <div class="product-card">
+
+                    <img src="assets/images/products/inverter-pro.jfif" alt="10KW Inverter">
+
+                    <div class="product-content">
+
+                        <span>Inverter</span>
+
+                        <h3>10KW Hybrid Inverter</h3>
+
+                        <p>Powerful inverter for commercial solar installations.</p>
+
+                        <h4>$890</h4>
+
+                        <a href="contact.html" class="btn">View Details</a>
+
+                    </div>
+
+                </div>
+
+                <!-- Product 12 -->
+                <div class="product-card">
+
+                    <img src="assets/images/products/panel-pro.jfif" alt="Solar Panel">
+
+                    <div class="product-content">
+
+                        <span>Solar Panel</span>
+
+                        <h3>700W Premium Solar Panel</h3>
+
+                        <p>Maximum efficiency with advanced solar technology.</p>
+
+                        <h4>$410</h4>
+
+                        <a href="contact.html" class="btn">View Details</a>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
-        <div class="cta-button">
+    </section>
 
-            <a href="contact.html" class="btn">
-                Contact Us
-            </a>
+    <!-- ==========================
+    Call To Action
+    ========================== -->
 
-        </div>
+    <section class="cta" data-aos="zoom-in">
 
-    </div>
+        <div class="container cta-container">
 
-</section>
-<!-- ==========================
-Footer
-========================== -->
+            <div class="cta-content">
 
-<footer class="footer" data-aos="fade-up"></footer>
+                <h2>Looking for the Right Solar Product?</h2>
 
-    <div class="container footer-container">
+                <p>
+                    Our experts are here to help you choose the best solar solution for your home or business.
+                </p>
 
-        <div class="footer-box">
+            </div>
 
-            <h2>Solar<span>Tech</span></h2>
+            <div class="cta-button">
 
-            <p>
-                We provide reliable solar energy solutions including
-                solar panels, inverters, batteries and complete
-                installation services.
-            </p>
+                <a href="contact.html" class="btn">
+                    Contact Us
+                </a>
 
-        </div>
-
-        <div class="footer-box">
-
-            <h3>Quick Links</h3>
-
-            <ul>
-
-                <li><a href="index.html">Home</a></li>
-
-                <li><a href="services.html">Services</a></li>
-
-                <li><a href="products.html">Products</a></li>
-
-                <li><a href="contact.html">Contact</a></li>
-
-            </ul>
+            </div>
 
         </div>
 
-        <div class="footer-box">
+    </section>
 
-            <h3>Our Products</h3>
+    <!-- ==========================
+    Footer
+    ========================== -->
 
-            <ul>
+    <footer class="footer" data-aos="fade-up">
 
-                <li>Solar Panels</li>
+        <div class="container footer-container">
 
-                <li>Hybrid Inverters</li>
+            <div class="footer-box">
 
-                <li>Lithium Batteries</li>
+                <h2>Solar<span>Tech</span></h2>
 
-                <li>Solar Accessories</li>
+                <p>
+                    We provide reliable solar energy solutions including
+                    solar panels, inverters, batteries and complete
+                    installation services.
+                </p>
 
-            </ul>
+            </div>
+
+            <div class="footer-box">
+
+                <h3>Quick Links</h3>
+
+                <ul>
+
+                    <li><a href="index.html">Home</a></li>
+
+                    <li><a href="services.html">Services</a></li>
+
+                    <li><a href="products.html">Products</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-box">
+
+                <h3>Our Products</h3>
+
+                <ul>
+
+                    <li>Solar Panels</li>
+
+                    <li>Hybrid Inverters</li>
+
+                    <li>Lithium Batteries</li>
+
+                    <li>Solar Accessories</li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-box">
+
+                <h3>Contact Info</h3>
+
+                <p><i class="fa-solid fa-location-dot"></i> Lahore, Pakistan</p>
+
+                <p><i class="fa-solid fa-phone"></i> +92 300 1234567</p>
+
+                <p><i class="fa-solid fa-envelope"></i> info@solartech.com</p>
+
+            </div>
 
         </div>
 
-        <div class="footer-box">
+        <div class="footer-bottom">
 
-            <h3>Contact Info</h3>
-
-            <p><i class="fa-solid fa-location-dot"></i> Lahore, Pakistan</p>
-
-            <p><i class="fa-solid fa-phone"></i> +92 300 1234567</p>
-
-            <p><i class="fa-solid fa-envelope"></i> info@solartech.com</p>
+            <p>© 2026 SolarTech. All Rights Reserved.</p>
 
         </div>
 
-    </div>
+    </footer>
 
-    <div class="footer-bottom">
+    <button id="scrollTop">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
-        <p>© 2026 SolarTech. All Rights Reserved.</p>
+    <script src="assets/js/script.js"></script>
 
-    </div>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 
-</footer>
-<button id="scrollTop">
-    <i class="fa-solid fa-arrow-up"></i>
-</button>
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
 
-<script src="assets/js/script.js"></script>
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('show');
+        });
+
+        // Menu link pe click karne se menu band ho jaye
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('show');
+            });
+        });
+    </script>
 
 </body>
 </html>
